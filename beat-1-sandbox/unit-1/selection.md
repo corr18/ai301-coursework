@@ -101,6 +101,7 @@ changed was issue-19 (reject → accept).
    it also fits the time I have.
 2. The verdict was right about the time it would take and about the actual problem: the
    API key in `README.md` and `.env.example` don't agree.
+   What I weighed that the rubric could not was the syntax, the website, and the timing.
 3. Claiming it shouldn't be difficult, since it hasn't been taken: no assignee, no linked
    PR, and no comments.
 
