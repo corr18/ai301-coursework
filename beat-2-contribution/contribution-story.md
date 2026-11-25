@@ -65,7 +65,7 @@ I installed the issue-scout skill over my unit 5 issue-select skill and wrote a 
 
 The verdict was right about the time it would take and about the actual problem: the API key in `README.md` and `.env.example` don't agree. What I weighed that the rubric could not was the syntax, the website, and the timing. Claiming it shouldn't be difficult, since it hasn't been taken: no assignee, no linked PR, and no comments.
 
-[1–3 sentences in your own words: how you found #75, what you hope to learn, and an honest read of the tool on this pick. Facts: on 2026-10-25 at 10:08 PM issue-select graded three repo issues together, accepting #75 and #66 and rejecting #60 (open PR #74). Because the fit profile was still empty, it ranked #75 first by size ("smallest and most clearly bounded"), not by fit. At 10:15 PM you re-ran it on #75 alone and got the accept with the `core/config.py` warning. issue-scout, built in Unit 9, came after this pick; its own picks (GenMotion#8, OpenImageIO#4781) were never pursued.]
+I initially chose issue #75 based on its size and apparent scope, not because issue-scout had ranked it first. At that point, my fit profile was still empty, and issue-scout was developed afterward. However, the project became a useful opportunity to test the workflow I was building. I wanted to learn how to investigate an unfamiliar codebase, trace configuration settings from documentation into the actual implementation, and determine whether a seemingly documentation-focused issue required a deeper code-level understanding. It also gave me a real contribution to use when testing repro-check, plan-check, and pr-precheck.
 
 Claim comment (2026-10-26): https://github.com/codepath/pathreview-ai301-fa26-howard/issues/75#issuecomment-6426755117
 
@@ -245,7 +245,7 @@ Ticked the five CI-backed boxes in PR #94's checklist (all five jobs green) and 
 - Tool: none for the build itself; repro-check, plan-check and pr-precheck gated each post.
 - What it produced: n/a
 - Difficulties: the plan comment was finalized after the fix was committed, so plan-check checked a plan that described finished work.
-- What changed: [what you'd do differently, in your words]
+- What changed: I committed the implementation before posting my final plan, which meant plan-check was evaluating a plan after the work had already been completed. Looking back, I should have written and reviewed the plan before making code changes. That would have allowed plan-check to serve its intended purpose: identifying unsupported assumptions, narrowing the implementation scope, and catching problems before they became part of the code. I learned that the order in which I use the tools matters just as much as the checks they perform.
 
 ---
 
@@ -266,7 +266,7 @@ Ticked the five CI-backed boxes in PR #94's checklist (all five jobs green) and 
 - Tool: pr-precheck.
 - What it produced: in the eval, 18/20 → 20/20 after revising `clean-diff` (unchanged lines around a real change are context, not churn) and `decisive-evidence` (bug failure modes must show after-output; added behavior can be stated). Commit `6d49437`.
 - Difficulties: I did not save the verdict or the run output on PR #94, so I cannot reliably state what pr-precheck concluded or claim that it approved or rejected the PR. The PR went up with its template sections empty, and nothing on record shows the tool flagging that.
-- What changed: [what you'd change: e.g. run it on the real PR body before submitting]
+- What changed: PR #94 was opened with an empty pull request template, and I did not preserve a pr-precheck verdict from that run. This showed me that creating a tool and evaluating it successfully against test cases does not automatically mean I am using it effectively in a real contribution. Next time, I would complete the PR template first, run pr-precheck against the actual pull request description and diff, and save its verdict before opening the PR. This would make the tool part of my submission process instead of something I only use during development.
 
 ---
 
@@ -274,15 +274,15 @@ Ticked the five CI-backed boxes in PR #94's checklist (all five jobs green) and 
 
 **Technical Skills Gained**
 
-[Your own words. Facts you can point at: tracing a setting through `pydantic-settings` (`Settings()`), using `grep` exit codes as evidence, writing before/after reproductions, tuning rubric-based graders against gold eval sets.]
+Through this contribution, I improved my ability to trace configuration settings through an unfamiliar codebase, particularly understanding how values defined in `.env` files connect to the application's `Settings()` configuration. I also learned how to use command-line tools like `grep` and interpret exit codes as evidence when verifying whether a configuration key existed. Beyond the implementation itself, I gained experience creating before-and-after reproductions and tuning AI evaluation rubrics against test sets. I learned that a tool's evaluation score only matters if its decisions make sense when applied to real work.
 
 **Challenges Overcome**
 
-[Your own words. Real events: the umbrella misread, the three honest reports repro-check rejected, the over-broad first plan comment, the `clean-diff` churn rule.]
+One of my biggest challenges was getting the evaluation criteria to distinguish between situations that looked similar but required different judgments. For example, issue-select initially rejected a legitimate issue because it interpreted a maintainer's numbered diagnosis as an umbrella issue. I also struggled with repro-check rejecting honest reproduction reports because its original requirements were too strict. I addressed these problems by examining the false rejections, adjusting the rubric, and rerunning evaluations to make sure the changes fixed the issue without allowing previously rejected cases to pass incorrectly.
 
 **What I'd Do Differently Next Time**
 
-[Your own words. Candidates from the record: post the plan before building, fill in the PR template, run pr-precheck on the real PR body, follow up on a silent PR.]
+If I were starting this contribution again, I would follow the tools in their intended order instead of allowing implementation to get ahead of planning. I would write and validate my plan before touching the code, complete the pull request template before submission, and run pr-precheck against the actual PR description and code changes. I would also save every tool verdict and evaluation result so I could refer back to the evidence later. Finally, I would be more proactive about following up on a pull request that has not received maintainer feedback.
 
 ---
 
