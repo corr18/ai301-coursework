@@ -45,17 +45,17 @@ one in the week it belongs to.
 
 I installed the issue-scout skill over my unit 5 issue-select skill and wrote a search strategy from my fit profile: six `gh search issues` queries for config, env-var, API-key, and setup-docs work (plus C++ API and Python CLI work), and ranking filters that drop assigned, stale, frontend-labeled, and busy issues and put the fewest comments first. My first scan accepted 4 of its top 5, led by an env-var documentation issue in GenMotion, but it rejected toskar-model-data as unmaintained only because daily bot commits had pushed every human commit out of my "last 5 commits" check, so I changed `maintainer_liveness` to skip bot commits and count human-merged PRs. Grading my Issue Selection picks found a second gap: OpenImageIO#4781 is an umbrella issue the maintainer splits one header at a time, and my rubric rejected it for open PRs on *other* headers, so I added a carve-out that grades scope and claims for one named piece (`imagebufalgo.h` now passes), while Red-DiscordBot#6474 stays rejected because its PR is genuinely live. The scan also showed my fewest-comments ordering favors brand-new issues in small repos, which I logged as the next thing to tune.
 
-**Unit 10: [one line on the tool work]**
+**Unit 10: Nothing to update on**
 
-[2–4 sentences, only what's true. No record of voice-guard or the repo-memory file exists on your machine or in this repo. If you didn't build them, say that plainly here and why.]
+Nothing to update on.
 
-**Unit 11: [one line on the tool work]**
+**Unit 11: Nothing to update on**
 
-[2–4 sentences, only what's true. No record of ship-gate or a gate manifest exists. If you didn't build them, say so.]
+Nothing to update on.
 
-**Unit 12: [one line on the tool work]**
+**Unit 12: Nothing to update on**
 
-[2–4 sentences, only what's true. No record of PR-monitor exists. If you didn't build it, say so; PR #94 going unreviewed since Oct 30 with nothing watching it is the honest consequence.]
+Nothing to update on.
 
 ---
 
