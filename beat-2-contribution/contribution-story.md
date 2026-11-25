@@ -47,15 +47,15 @@ I installed the issue-scout skill over my unit 5 issue-select skill and wrote a 
 
 **Unit 10: Nothing to update on**
 
-Nothing to update on.
+Nothing to update on. I thought these were optional sections and didn't have enough time to go back and implement them into my solution by the time of grading.
 
 **Unit 11: Nothing to update on**
 
-Nothing to update on.
+Nothing to update on. I thought these were optional sections and didn't have enough time to go back and implement them into my solution by the time of grading.
 
 **Unit 12: Nothing to update on**
 
-Nothing to update on.
+Nothing to update on. I thought these were optional sections and didn't have enough time to go back and implement them into my solution by the time of grading.
 
 ---
 
