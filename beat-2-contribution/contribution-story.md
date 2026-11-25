@@ -1,4 +1,4 @@
-# Contribution: [Issue Title]
+# Contribution: README and `.env.example` disagree about which LLM API key to set
 
 Path: `beat-2-contribution/contribution-story.md`
 
@@ -7,12 +7,11 @@ the repository is not read. **Keep every section header below under its exact na
 format criteria grade exactly that. Your course repo link is the whole submission: no tool
 files and no evidence uploads are part of Assignment 5.
 
-**Contribution Number:** [1]
-**Student:** [Student name]
-**GitHub Username:** [your GitHub username, exactly as it appears on your profile - no @, no
-profile URL. Your comments upstream are identified by this name.]
-**Issue:** [GitHub issue link]
-**Pull Request:** [GitHub PR link, once opened]
+**Contribution Number:** 1
+**Student:** Caleb Orr
+**GitHub Username:** corr18
+**Issue:** https://github.com/codepath/pathreview-ai301-fa26-howard/issues/75
+**Pull Request:** https://github.com/codepath/pathreview-ai301-fa26-howard/pull/94
 
 One repository, built across units 5 to 8, telling the whole story of your real
 contribution. Fill it as you work, not at the end — the sections below ask for evidence that
@@ -34,19 +33,6 @@ Toolkit points read, and they are the raw material for your unit-9
 portfolio, so keep them current as you work rather than
 reconstructing them later.
 
-A Toolkit block looks like this (copy it into each story section and
-fill it there):
-
-```text
-**Toolkit**
-
-- Tool: [which tool did this phase's work, and how you used it]
-- What it produced: [described in a sentence or a short excerpt]
-- Difficulties: [what fought you or fell short, or "none met"]
-- What changed: [the patch, revision, or workaround, what you would
-  update, or "nothing"]
-```
-
 This section also keeps one short dated entry per week of tool work,
 starting below: what you built or changed that week, what broke, and
 what you changed because of it. The blocks tell the story where it
@@ -59,44 +45,36 @@ one in the week it belongs to.
 
 I installed the issue-scout skill over my unit 5 issue-select skill and wrote a search strategy from my fit profile: six `gh search issues` queries for config, env-var, API-key, and setup-docs work (plus C++ API and Python CLI work), and ranking filters that drop assigned, stale, frontend-labeled, and busy issues and put the fewest comments first. My first scan accepted 4 of its top 5, led by an env-var documentation issue in GenMotion, but it rejected toskar-model-data as unmaintained only because daily bot commits had pushed every human commit out of my "last 5 commits" check, so I changed `maintainer_liveness` to skip bot commits and count human-merged PRs. Grading my Issue Selection picks found a second gap: OpenImageIO#4781 is an umbrella issue the maintainer splits one header at a time, and my rubric rejected it for open PRs on *other* headers, so I added a carve-out that grades scope and claims for one named piece (`imagebufalgo.h` now passes), while Red-DiscordBot#6474 stays rejected because its PR is genuinely live. The scan also showed my fewest-comments ordering favors brand-new issues in small repos, which I logged as the next thing to tune.
 
-**Unit 6: [one line on the tool work]**
+**Unit 10: [one line on the tool work]**
 
-[2-4 sentences: the voice-guard, the repo-memory file. What broke or
-fell short, and what changed because of it. "Nothing broke" counts when
-it is true - say how you know.]
+[2–4 sentences, only what's true. No record of voice-guard or the repo-memory file exists on your machine or in this repo. If you didn't build them, say that plainly here and why.]
 
-**Unit 7: [one line on the tool work]**
+**Unit 11: [one line on the tool work]**
 
-[2-4 sentences: the ship-gate and your gate manifest. What it produced
-on your real branch, what fought you, what changed because of it.]
+[2–4 sentences, only what's true. No record of ship-gate or a gate manifest exists. If you didn't build them, say so.]
 
-**Unit 8: [one line on the tool work]**
+**Unit 12: [one line on the tool work]**
 
-[2-4 sentences: the PR-monitor and your playbook. What it read, what it
-drafted, what you did with the draft.]
+[2–4 sentences, only what's true. No record of PR-monitor exists. If you didn't build it, say so; PR #94 going unreviewed since Oct 30 with nothing watching it is the honest consequence.]
 
 ---
 
 ## Why I Chose This Issue
 
-[1-2 paragraphs in your own words: how you searched, what your scan
-surfaced, what your scout's verdict said, why this issue fits your
-profile, and what you hope to learn. If your scout's verdict on it
-was reject and you chose it anyway, say so here and say why; choosing
-against your own tool silently is what loses points. Close with an
-honest read of the tool itself: where the scout fell short on a real
-wild search and what you changed or would change, or what convinced
-you it held up. **Record the link to your claim comment in this section too.**
-Not claimed yet? Write `claim pending` and today's date where the link goes,
-and add the link the moment your claim lands.]
+#75 fits my interests because API keys and `.env` configuration are integral to all work in a repo. Keeping that setup secure and making sure it runs smoothly matters in every project, so getting it right here is worth learning. At an estimated 1–2 hours, it also fits the time I have.
+
+The verdict was right about the time it would take and about the actual problem: the API key in `README.md` and `.env.example` don't agree. What I weighed that the rubric could not was the syntax, the website, and the timing. Claiming it shouldn't be difficult, since it hasn't been taken: no assignee, no linked PR, and no comments.
+
+[1–3 sentences in your own words: how you found #75 (the scout graded it as a single candidate; its fit profile was still empty, so there was nothing to rank against), what you hope to learn, and an honest read of the tool on this pick.]
+
+Claim comment (2026-10-26): https://github.com/codepath/pathreview-ai301-fa26-howard/issues/75#issuecomment-6426755117
 
 **Toolkit**
 
-- Tool: issue-scout (your scout: your search strategy, your rubric),
-  and how you used it
-- What it produced: [the scan and its verdict on this issue, described]
-- Difficulties: [where it fell short, or "none met" if none did]
-- What changed: [what you patched or would update, or "nothing"]
+- Tool: issue-select (my rubric, later grown into issue-scout), run on #75 as a single candidate on 2026-10-25.
+- What it produced: accept on all five checks (`maintainer_liveness`, `repository_in_use`, `newcomer_scope`, `unclaimed`, `ai_contribution_policy`), plus one warning: "The fix isn't purely docs … the issue mentions that `core/config.py` defines both keys. Check that file so the docs match what the code actually reads."
+- Difficulties: the fit profile in `scope.md` was still a placeholder, so it couldn't rank candidates; the `gh` commands needed approval and didn't run, so the evidence came from public GitHub pages.
+- What changed: the warning shaped the next phases (I traced `core/config.py` before editing anything). In the eval, a numbered list of causes was read as an umbrella issue, so I added a "diagnosis, not an umbrella" clause to `newcomer_scope` (19/20 → 20/20).
 
 ---
 
@@ -104,26 +82,29 @@ and add the link the moment your claim lands.]
 
 **Problem Description**
 
-[In your own words, what is broken or missing?]
+The README (line 24) and `docs/SETUP.md` (line 47) both tell a new contributor to set `OPENROUTER_API_KEY` in `.env`, and `core/config.py` defines `openrouter_api_key`, but `.env.example` has no `OPENROUTER` line at all.
 
 **Expected Behavior**
 
-[What should happen?]
+Someone who runs `cp .env.example .env` gets the variable the README tells them to set, and the `LLM_PROVIDER` comment lists every option the config supports.
 
 **Current Behavior**
 
-[What actually happens?]
+README.md and docs/SETUP.md both say to set `OPENROUTER_API_KEY`, but .env.example has no `OPENROUTER` line at all (grep exits 1). It only has `OPENAI_API_KEY`, and its comment offers only mock and OpenAI. So someone following the README ends up with a `.env` missing the variable the docs call required.
 
 **Affected Components**
 
-[Which parts of the codebase are involved?]
+- `.env.example` (missing the key)
+- `README.md` line 24 and `docs/SETUP.md` line 47 (the instructions that ask for it)
+- `core/config.py` (`Settings`, which defines `llm_provider`, `openai_api_key` and `openrouter_api_key`)
+- `ingestion/embeddings/provider.py` (`get_embedding_provider`, the only provider switch, which accepts `"mock"` and `"openai"`)
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: issue-select's verdict and warning (above), then reading the files by hand.
+- What it produced: the pointer to `core/config.py`, which turned "docs disagree" into "check what the code actually reads."
+- Difficulties: none met.
+- What changed: nothing.
 
 ---
 
@@ -131,31 +112,43 @@ and add the link the moment your claim lands.]
 
 **Environment Setup**
 
-[What a stranger would need to stand this up: your operating system,
-the relevant versions (language, runtime, package manager, the project
-itself), and how you set the project up. Then the challenges you faced
-and how you solved them, or that none came up.]
+macOS 26.6.2, git 2.39.5, fresh `git clone --depth 1` of `main` at `99673c7` (2026-09-16). This is a docs mismatch, so nothing needs to be installed or run for the reproduction itself. For the later `Settings()` check: Python 3.13.7, `pydantic-settings` 2.16.2. No setup challenges came up.
 
 **Steps to Reproduce**
 
-1. [Step 1]
-2. [Step 2]
-3. [Observed result]
+1. `git clone --depth 1 https://github.com/codepath/pathreview-ai301-fa26-howard.git && cd pathreview-ai301-fa26-howard` (HEAD `99673c7`)
+2. `grep -n OPENROUTER README.md docs/SETUP.md` → README.md:24 and docs/SETUP.md:47 both ask for `OPENROUTER_API_KEY`
+3. `grep -n OPENROUTER .env.example; echo "exit=$?"` → `exit=1`: no such line in the template
 
 **Reproduction Evidence**
 
-- **Commit showing reproduction:** [link to commit in your fork]
-- **Screenshots/logs:** [if applicable]
-- **My findings:** [what you discovered during reproduction; an
-  honest, evidenced cannot-reproduce that led you to re-pick or ask
-  the maintainer belongs here and costs you nothing]
+- **Commit showing reproduction:** upstream `main` at [`99673c7`](https://github.com/codepath/pathreview-ai301-fa26-howard/commit/99673c7), reproduced on a fresh clone; posted as the [reproduction comment](https://github.com/codepath/pathreview-ai301-fa26-howard/issues/75#issuecomment-6426965165) on 2026-10-26.
+- **Screenshots/logs:**
+
+```text
+$ grep -n OPENROUTER README.md docs/SETUP.md
+README.md:24:# Configure environment (add your OPENROUTER_API_KEY to .env)
+docs/SETUP.md:47:# Edit .env and set your OPENROUTER_API_KEY (required for AI features)
+$ grep -n OPENROUTER .env.example; echo "exit=$?"
+exit=1
+$ grep -n -A2 "LLM provider" .env.example
+16:# LLM provider
+17-# Options: "mock" (default, no API key needed), "openai"
+18-LLM_PROVIDER=mock
+$ grep -n -E "llm_provider|openai_api_key|openrouter_api_key" core/config.py
+18:    llm_provider: str = Field(default="mock")
+19:    openai_api_key: str = Field(default="")
+20:    openrouter_api_key: str = Field(default="")
+```
+
+- **My findings:** core/config.py defines both keys, so the issue description matches what I see. One thing I noticed but hadn't confirmed yet: in core/config.py, I didn't find a line that maps an LLM_PROVIDER value to OpenRouter, so I didn't yet know what the valid value would be. Tracing that was my next step, before I changed any docs.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: repro-check, run live on my claim and repro drafts before posting.
+- What it produced: accept, with one voice-guide note: "the claim gives line numbers (README line 24, SETUP.md line 47) but not the commit they come from. Adding 'on 99673c7' makes it match your rule." The posted claim says "On main at 99673c7", so I acted on it.
+- Difficulties: in the eval, the first run scored 17/20, rejecting three honest reports (pkg-03 on `outcome-honest`, pkg-05 on `steps-rerunnable`, pkg-09 on `behavior-matches-issue`).
+- What changed: loosened those three checks; a 7/7 partial re-run with canaries, then a 20/20 full run (commit `042a4a9`). Trade-off: a barely-tried cannot-reproduce could now pass the behavior check.
 
 ---
 
@@ -163,93 +156,113 @@ and how you solved them, or that none came up.]
 
 **Analysis**
 
-[Your analysis of the root cause: what is causing the issue, traced
-to the files and functions involved.]
+Nothing in the code reads `settings.llm_provider` or maps any `LLM_PROVIDER` value to OpenRouter. `grep -rn "llm_provider" --include=*.py` only hits the field definition in `core/config.py`. The only provider switch in the code is `get_embedding_provider` in `ingestion/embeddings/provider.py`, which accepts `"mock"` and `"openai"`. So the `LLM_PROVIDER` comment in `.env.example` is accurate today, and the fix is to add the missing key, not to add an `openrouter` option the code doesn't accept.
 
 **Proposed Solution**
 
-[High-level description of your fix approach, and what you are
-deliberately NOT changing.]
+One change, in one file: `.env.example`. Add `OPENROUTER_API_KEY=` under the `# LLM provider` block, with a one-line comment saying the README's AI setup uses it, and keep the `LLM_PROVIDER` options comment as `"mock"` and `"openai"`, since those are the values the code accepts.
+
+Not changing: wiring an `openrouter` value for `LLM_PROVIDER` into the code (that's a feature, not this docs mismatch); adding `OPENROUTER_BASE_URL` or `OPENROUTER_MODEL` (`core/config.py` has working defaults for both); editing `README.md` or `docs/SETUP.md` (once `.env.example` has the key, they're correct as written); touching `core/config.py`.
 
 **Implementation Plan**
 
-1. [Modify file X to do Y]
-2. [Add or change Z]
-3. [Update tests]
+1. Branch `fix/75-env-example-openrouter-key` from `main` on my fork.
+2. Edit `.env.example`: add the `OPENROUTER_API_KEY=` line and its comment in the `# LLM provider` block.
+3. Re-run my repro steps and the `Settings()` check.
+4. Commit as `fix: add OPENROUTER_API_KEY to .env.example` with `Fixes #75`.
 
-[Record deviations here as they happen: what changed mid-build and
-why. A recorded deviation is honest work; silent drift is not.]
+Deviations: nothing changed in the change itself; the plan held. What did change was the thread. My [first plan comment](https://github.com/codepath/pathreview-ai301-fa26-howard/issues/75#issuecomment-6537943635) was broader than this plan: it said I'd investigate the provider config, might change the `LLM_PROVIDER` comment, and would check that the README and setup docs explain the provider and key. By then the tracing was already done and showed that only `.env.example` needed to change, so that comment promised work I wasn't going to do. I posted a [second comment](https://github.com/codepath/pathreview-ai301-fa26-howard/issues/75#issuecomment-6537980056) that matches this plan. [Add one honest sentence: the second plan comment went up at 10:46 PM, 28 minutes after the fix commit `227fb95`.]
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: plan-check, run live on my plan draft before posting.
+- What it produced: it flagged that my first draft said my repro showed the `Settings()` result, when my posted repro never ran `Settings()`.
+- Difficulties: none in the eval (20/20 on the first rubric, commit `3017e32`); the live run's catch was the useful part.
+- What changed: I reworded the diagnosis to say I checked `Settings()` after the repro. No rubric change.
 
 ---
 
 ## Testing Strategy
 
-[What observable checks prove the fix: your reproduction steps re-run
-against the built change (before and after), and the repo's own test
-suite or checks with the outcome shown. "Tests pass" with nothing
-observable named is not a strategy.]
+Re-run the repro steps on the branch, plus the closest check through the real code path: copy `.env.example` to `.env` and load it with `core.config.Settings`, the class the app reads its config from.
+
+Before, on `main` at `99673c7`:
+
+```text
+$ grep -n OPENROUTER .env.example; echo exit=$?
+exit=1
+$ cp .env.example .env && python3 -c '...Settings()...'
+llm_provider='mock' openrouter_api_key=''
+```
+
+After, on `fix/75-env-example-openrouter-key` at `227fb95`, with a test key filled into the copied `.env`:
+
+```text
+$ grep -n OPENROUTER .env.example; echo exit=$?
+21:OPENROUTER_API_KEY=
+exit=0
+$ python3 -c '...Settings()...'
+llm_provider='mock' openrouter_api_key='sk-or-test-value'
+```
+
+Before, `.env.example` has no `OPENROUTER` line (exit 1), so there is nothing to fill in. After, line 21 has it (exit 0), and once a value is filled in, `Settings()` loads it as `openrouter_api_key`. `llm_provider` stays `mock` in both. The repo's CI ran on the PR: all five jobs passed.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: none beyond plan-check's test-plan check (`test-proves-fix`); the test plan came from my plan.
+- What it produced: the before/after above.
+- Difficulties: none met.
+- What changed: nothing.
 
 ---
 
 ## Implementation Notes
 
-[A running log, added to as you work. Date each entry. What you
-built, decisions you made when you made them, wrong turns included.]
+**2026-10-25**
 
-**[Date]**
+Graded #75 with issue-select: accept on all five checks. Fixed the eval's umbrella misread (19/20 → 20/20).
 
-[Entry]
+**2026-10-26**
 
-**[Date]**
+Claimed #75 at 4:37 PM and posted the reproduction at 4:48 PM, both after repro-check said accept.
 
-[Entry]
+**2026-10-30**
+
+Traced `llm_provider` through the code: only the field definition reads it, and the only provider switch accepts mock and openai, so the fix is the missing key only. Committed the fix (`227fb95`, `.env.example` only), posted a first plan comment that was broader than the work, then replaced it at 10:46 PM with a narrower one matching the plan. Opened PR #94 at 11:04 PM ET.
+
+**2026-11-20**
+
+PR #94 still has 0 comments and 0 reviews.
+
+[Add any entries you remember that aren't here, with their dates, including wrong turns.]
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: none for the build itself; repro-check, plan-check and pr-precheck gated each post.
+- What it produced: n/a
+- Difficulties: the plan comment was finalized after the fix was committed, so plan-check checked a plan that described finished work.
+- What changed: [what you'd do differently, in your words]
 
 ---
 
 ## Pull Request
 
-**PR Link:** [GitHub PR URL when opened]
+**PR Link:** https://github.com/codepath/pathreview-ai301-fa26-howard/pull/94
 
-**PR Description:** [what the PR says; much of the content above
-adapts into it]
+**PR Description:** "fix: add OPENROUTER_API_KEY to .env.example". The body says the README and `docs/SETUP.md` tell contributors to set `OPENROUTER_API_KEY` in `.env` and that `core/config.py` reads it as `openrouter_api_key`, but a `.env` copied from `.env.example` lacked it; the change is commit `227fb95`, linked to #75. The template's Summary, Changes, Screenshots and Notes for Reviewers sections were left empty, and the "Closes #" line has no number. [Your call: say this plainly, or edit the PR body before review.]
 
 **Maintainer Feedback:**
 
-- [Date]: [feedback received, or "none yet"; silence is a normal
-  state and costs you nothing]
-- [Date]: [how you addressed it]
+- 2026-11-20: none yet (0 comments, 0 reviews on PR #94)
 
-**Status:** [Awaiting review / Iterating / Merged / Closed. The
-status is a fact you record, never a grade: the PR is graded as
-opened.]
+**Status:** Awaiting review (opened 2026-10-30, 11:04 PM ET, which GitHub shows as Oct 31; all five CI jobs green; no maintainer review yet)
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: pr-precheck.
+- What it produced: in the eval, 18/20 → 20/20 after revising `clean-diff` (unchanged lines around a real change are context, not churn) and `decisive-evidence` (bug failure modes must show after-output; added behavior can be stated). Commit `6d49437`.
+- Difficulties: [check this before writing: no saved pr-precheck verdict on PR #94 exists. Either you didn't run it on the final PR body, or it missed the empty template sections.]
+- What changed: [what you'd change: e.g. run it on the real PR body before submitting]
 
 ---
 
@@ -257,25 +270,20 @@ opened.]
 
 **Technical Skills Gained**
 
-[What you learned technically, named concretely.]
+[Your own words. Facts you can point at: tracing a setting through `pydantic-settings` (`Settings()`), using `grep` exit codes as evidence, writing before/after reproductions, tuning rubric-based graders against gold eval sets.]
 
 **Challenges Overcome**
 
-[What was hard and how you solved it; point at the real events, the
-Toolkit blocks above are full of them.]
+[Your own words. Real events: the umbrella misread, the three honest reports repro-check rejected, the over-broad first plan comment, the `clean-diff` churn rule.]
 
 **What I'd Do Differently Next Time**
 
-[Reflection on your process.]
+[Your own words. Candidates from the record: post the plan before building, fill in the PR template, run pr-precheck on the real PR body, follow up on a silent PR.]
 
 ---
 
 ## Resources Used
 
-[What actually helped, not a reading list. List things this story
-already shows you using: the doc you followed to set the environment
-up, the thread that explained the bug, the person who answered you.
-One real entry beats ten plausible ones.]
-
-- [Link to documentation that helped]
-- [Discussion, issue, or post that helped]
+- [Issue #75](https://github.com/codepath/pathreview-ai301-fa26-howard/issues/75): the issue thread itself, which named `core/config.py`.
+- The repo's own `README.md` (line 24), `docs/SETUP.md` (line 47), `core/config.py` and `ingestion/embeddings/provider.py`, which defined what the fix had to match.
+- `docs/CONTRIBUTING.md` and the PR template, for the repo's contribution rules.
