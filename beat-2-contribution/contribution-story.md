@@ -65,15 +65,15 @@ I installed the issue-scout skill over my unit 5 issue-select skill and wrote a 
 
 The verdict was right about the time it would take and about the actual problem: the API key in `README.md` and `.env.example` don't agree. What I weighed that the rubric could not was the syntax, the website, and the timing. Claiming it shouldn't be difficult, since it hasn't been taken: no assignee, no linked PR, and no comments.
 
-[1–3 sentences in your own words: how you found #75 (the scout graded it as a single candidate; its fit profile was still empty, so there was nothing to rank against), what you hope to learn, and an honest read of the tool on this pick.]
+[1–3 sentences in your own words: how you found #75, what you hope to learn, and an honest read of the tool on this pick. Facts: on 2026-10-25 at 10:08 PM issue-select graded three repo issues together, accepting #75 and #66 and rejecting #60 (open PR #74). Because the fit profile was still empty, it ranked #75 first by size ("smallest and most clearly bounded"), not by fit. At 10:15 PM you re-ran it on #75 alone and got the accept with the `core/config.py` warning. issue-scout, built in Unit 9, came after this pick; its own picks (GenMotion#8, OpenImageIO#4781) were never pursued.]
 
 Claim comment (2026-10-26): https://github.com/codepath/pathreview-ai301-fa26-howard/issues/75#issuecomment-6426755117
 
 **Toolkit**
 
-- Tool: issue-select (my rubric, later grown into issue-scout), run on #75 as a single candidate on 2026-10-25.
-- What it produced: accept on all five checks (`maintainer_liveness`, `repository_in_use`, `newcomer_scope`, `unclaimed`, `ai_contribution_policy`), plus one warning: "The fix isn't purely docs … the issue mentions that `core/config.py` defines both keys. Check that file so the docs match what the code actually reads."
-- Difficulties: the fit profile in `scope.md` was still a placeholder, so it couldn't rank candidates; the `gh` commands needed approval and didn't run, so the evidence came from public GitHub pages.
+- Tool: issue-select (my rubric, later grown into issue-scout), run on 2026-10-25 first against three candidates (#75, #66, #60), then on #75 alone.
+- What it produced: in the three-issue run, #75 and #66 accepted and #60 rejected on `unclaimed` (open PR #74), with #75 ranked first as the smallest job. On #75 alone: accept on all five checks (`maintainer_liveness`, `repository_in_use`, `newcomer_scope`, `unclaimed`, `ai_contribution_policy`), plus one warning: "The fix isn't purely docs … the issue mentions that `core/config.py` defines both keys. Check that file so the docs match what the code actually reads."
+- Difficulties: the fit profile in `scope.md` was still a placeholder, so it ranked by size instead of fit; the `gh` commands needed approval and didn't run, so the evidence came from public GitHub pages.
 - What changed: the warning shaped the next phases (I traced `core/config.py` before editing anything). In the eval, a numbered list of causes was read as an umbrella issue, so I added a "diagnosis, not an umbrella" clause to `newcomer_scope` (19/20 → 20/20).
 
 ---
@@ -171,7 +171,7 @@ Not changing: wiring an `openrouter` value for `LLM_PROVIDER` into the code (tha
 3. Re-run my repro steps and the `Settings()` check.
 4. Commit as `fix: add OPENROUTER_API_KEY to .env.example` with `Fixes #75`.
 
-Deviations: nothing changed in the change itself; the plan held. What did change was the thread. My [first plan comment](https://github.com/codepath/pathreview-ai301-fa26-howard/issues/75#issuecomment-6537943635) was broader than this plan: it said I'd investigate the provider config, might change the `LLM_PROVIDER` comment, and would check that the README and setup docs explain the provider and key. By then the tracing was already done and showed that only `.env.example` needed to change, so that comment promised work I wasn't going to do. I posted a [second comment](https://github.com/codepath/pathreview-ai301-fa26-howard/issues/75#issuecomment-6537980056) that matches this plan. [Add one honest sentence: the second plan comment went up at 10:46 PM, 28 minutes after the fix commit `227fb95`.]
+Deviations: nothing changed in the change itself; the plan held. What did change was the thread. My first plan comment (since deleted from the thread) was broader than this plan: it said I'd investigate the provider config, might change the `LLM_PROVIDER` comment, and would check that the README and setup docs explain the provider and key. By then the tracing was already done and showed that only `.env.example` needed to change, so that comment promised work I wasn't going to do. I posted a [second comment](https://github.com/codepath/pathreview-ai301-fa26-howard/issues/75#issuecomment-6537980056) that matches this plan. The order on the record: fix commit `227fb95` at 10:18 PM, then the first plan comment, then the second plan comment at 10:46 PM, 28 minutes after the commit.
 
 **Toolkit**
 
@@ -234,7 +234,11 @@ Traced `llm_provider` through the code: only the field definition reads it, and 
 
 PR #94 still has 0 comments and 0 reviews.
 
-[Add any entries you remember that aren't here, with their dates, including wrong turns.]
+**2026-11-25**
+
+Ticked the five CI-backed boxes in PR #94's checklist (all five jobs green) and filled in the PR template's Summary, Changes, Screenshots / Demo, and Notes for Reviewers sections, with `Closes #75`. Left "New/updated tests" and the seeded-bug xfail box unticked: the PR adds no tests, and #75 (manifest entry H-06) has no xfail marker.
+
+[Optional: add any other entries you remember, with dates, including wrong turns. Delete this bracket if there are none.]
 
 **Toolkit**
 
@@ -249,7 +253,7 @@ PR #94 still has 0 comments and 0 reviews.
 
 **PR Link:** https://github.com/codepath/pathreview-ai301-fa26-howard/pull/94
 
-**PR Description:** "fix: add OPENROUTER_API_KEY to .env.example". The body says the README and `docs/SETUP.md` tell contributors to set `OPENROUTER_API_KEY` in `.env` and that `core/config.py` reads it as `openrouter_api_key`, but a `.env` copied from `.env.example` lacked it; the change is commit `227fb95`, linked to #75. The template's Summary, Changes, Screenshots and Notes for Reviewers sections were left empty, and the "Closes #" line has no number. [Your call: say this plainly, or edit the PR body before review.]
+**PR Description:** "fix: add OPENROUTER_API_KEY to .env.example". The body says the README and `docs/SETUP.md` tell contributors to set `OPENROUTER_API_KEY` in `.env` and that `core/config.py` reads it as `openrouter_api_key`, but a `.env` copied from `.env.example` lacked it; the change is commit `227fb95`, linked to #75. When I opened it on 2026-10-30, the template's Summary, Changes, Screenshots and Notes for Reviewers sections were left empty and the "Closes #" line had no number. On 2026-11-25, still before any review, I filled them in: the Summary names the one-line `.env.example` change; Changes records that the `LLM_PROVIDER` options were deliberately left as `mock` / `openai` and that README, SETUP and `core/config.py` are untouched; Screenshots / Demo has the before/after `grep` and `Settings()` output; Notes for Reviewers explains the empty value and offers the `LLM_PROVIDER` comment as a follow-up. The issue line now reads `Closes #75`, and the five CI-backed checklist boxes are ticked.
 
 **Maintainer Feedback:**
 
@@ -261,7 +265,7 @@ PR #94 still has 0 comments and 0 reviews.
 
 - Tool: pr-precheck.
 - What it produced: in the eval, 18/20 → 20/20 after revising `clean-diff` (unchanged lines around a real change are context, not churn) and `decisive-evidence` (bug failure modes must show after-output; added behavior can be stated). Commit `6d49437`.
-- Difficulties: [check this before writing: no saved pr-precheck verdict on PR #94 exists. Either you didn't run it on the final PR body, or it missed the empty template sections.]
+- Difficulties: I did not save the verdict or the run output on PR #94, so I cannot reliably state what pr-precheck concluded or claim that it approved or rejected the PR. The PR went up with its template sections empty, and nothing on record shows the tool flagging that.
 - What changed: [what you'd change: e.g. run it on the real PR body before submitting]
 
 ---
