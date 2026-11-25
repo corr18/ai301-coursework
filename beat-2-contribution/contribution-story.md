@@ -238,8 +238,6 @@ PR #94 still has 0 comments and 0 reviews.
 
 Ticked the five CI-backed boxes in PR #94's checklist (all five jobs green) and filled in the PR template's Summary, Changes, Screenshots / Demo, and Notes for Reviewers sections, with `Closes #75`. Left "New/updated tests" and the seeded-bug xfail box unticked: the PR adds no tests, and #75 (manifest entry H-06) has no xfail marker.
 
-[Optional: add any other entries you remember, with dates, including wrong turns. Delete this bracket if there are none.]
-
 **Toolkit**
 
 - Tool: none for the build itself; repro-check, plan-check and pr-precheck gated each post.
